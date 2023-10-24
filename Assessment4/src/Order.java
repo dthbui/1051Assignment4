@@ -1,58 +1,62 @@
+import java.util.ArrayList;
 import java.util.List;
 
-public class Order {
-    private List<FoodItem> foodItems;
+public class Order implements FoodItemInterface {
+    private ArrayList<FoodItem> foodItems = new ArrayList<FoodItem>();
     private String customerName;
     private String customerContact;
     private String deliveryAddress;
-    private double totalCost;
 
-    public Order(List<FoodItem> foodItems, String customerName, String customerContact, String deliveryAddress) {
-        this.foodItems = foodItems;
+    public Order(String customerName, String customerContact, String deliveryAddress) {
         this.customerName = customerName;
         this.customerContact = customerContact;
         this.deliveryAddress = deliveryAddress;
-        calculateTotalCost();
     }
 
-    private void calculateTotalCost() {
-        totalCost = 0.0;
+    public void addFoodItem(FoodItem foodItem) {
+        foodItems.add(foodItem);
+    }
+
+    public double getPrice() {
+        double totalCost = 0.0;
         for (FoodItem item : foodItems) {
-            totalCost += item.getTotalCost();
+            totalCost += item.getPrice();
         }
-    }
-
-    public List<FoodItem> getFoodItems() {
-        return foodItems;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public String getCustomerContact() {
-        return customerContact;
-    }
-
-    public String getDeliveryAddress() {
-        return deliveryAddress;
+        return totalCost;
     }
 
     public MealType getMealType() {
-        for (FoodItem item : foodItems) {
-            switch (item.getMealType()) {
+        boolean foundMeat = false;
+        boolean foundVegetarian = false;
+
+        for (FoodItem foodItem : foodItems) {
+            switch (foodItem.getMealType()) {
                 case MEAT:
-                    return MealType.MEAT;
+                    foundMeat = true;
+
                 case VEGETARIAN:
-                    return MealType.VEGETARIAN;
-                default:
-                    return MealType.VEGAN;
+                    foundVegetarian = true;
+
+                case VEGAN:
+                    break;
             }
         }
-        return MealType.VEGAN;
+        
+        if (foundMeat) {
+            return MealType.MEAT;
+        } else if (foundVegetarian) {
+            return MealType.VEGETARIAN;
+        } else {
+            return MealType.VEGAN;
+        }
     }
 
-    public double getTotalCost() {
-        return totalCost;
+    public String toString() {
+        return "Customer name: " + customerName + "\n" +
+            "Customer contacts: " + customerContact + "\n" +
+            "Customer address: " + deliveryAddress + "\n" + 
+            "Order: " + foodItems.toString() + "\n" +
+            "Meal Type: " + getMealType() + "\n" +
+            "Price: " + getPrice();
     }
 }

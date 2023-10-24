@@ -10,7 +10,7 @@ public class RestaurantDriver
         {
             System.out.println("""
                     Welcome to the Take-Away Management Portal
-                    ==========================================
+                    ------------------------------------------
 
                     Please select an option:
                     1. Enter order details

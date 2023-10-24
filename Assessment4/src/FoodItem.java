@@ -1,8 +1,8 @@
-abstract class FoodItem implements OrderInterface{
+abstract class FoodItem implements FoodItemInterface {
     
-    protected double standardPrice = 11.50;
+    protected final double basePrice = 11.50;
 
-    public abstract double getTotalCost();
+    public abstract double getPrice();
 
     public abstract MealType getMealType();
 
