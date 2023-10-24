@@ -19,17 +19,25 @@ public class RestaurantDriver
     public static void main(String[] args)
     {
         final ArrayList<Order> orders = new ArrayList<Order>();
-        
+        int mainMenuSelection = 0;
+        while (mainMenuSelection != 4) {
+            printMainMenu();
+            mainMenuSelection = getUserMainMenuSelection();
+            // TODO - implement me
 
-        // print menu
-
-        // scan user input
-
-        // manipulate data structure
-
-
+        }
     }
 
-    
+    public static void printMainMenu() {
+        // TODO - implement me
+    }
+
+    public static int getUserMainMenuSelection() {
+        // TODO - implement me
+        // use scanner to get the user selection from the prompt, validate the selection (loop)
+        // return valid selection
+        return 0;
+    }
+
 
 }
