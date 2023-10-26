@@ -2,7 +2,7 @@
 // By Dylan Bui (33879206)
 
 
-// This is a concrete class for a Pasta that extends the FoodItem abstract class.
+// This is a concrete class for Pasta that extends the FoodItem abstract class.
 public class Pasta extends FoodItem {
     // The topping for the pasta.
     private PastaTopping topping;
@@ -23,13 +23,13 @@ public class Pasta extends FoodItem {
         return "Pasta with " + topping.toString() + " - $" + getPrice();
     }
 
-    // This method returns the price of the pasta, which is the base price plus the price of the topping.
+    // This method returns the price of the pasta, plus topping.
     @Override
     public double getPrice() {
         return basePrice + topping.getPrice();
     }
 
-    // This method returns the type of meal the pasta belongs to, which is determined by the type of topping.
+    // This method returns the type of meal the pasta belongs to.
     @Override
     public MealType getMealType() {
         return topping.getMealType();

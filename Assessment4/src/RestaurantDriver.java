@@ -144,7 +144,7 @@ public class RestaurantDriver
             if (customerContact.matches("^(?=.{10,})(\\d)+$")) {
                 break;
             } else {
-                System.out.println("Phone number is not valid. Must be atleast 10 digits long of only numbers. Please try again.");
+                System.out.println("Phone number is not valid. Must be at least 10 digits long of only numbers. Please try again.");
             }
         }
         

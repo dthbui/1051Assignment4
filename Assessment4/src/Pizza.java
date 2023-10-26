@@ -15,13 +15,14 @@ public class Pizza extends FoodItem {
         this.toppings = toppings;
     }
 
-    // This method returns a string representation of the pizza, including its toppings and price.
+    // This method returns a string representation of the pizza,
+    // including its toppings and price.
     public String toString() {
         return "Pizza with " + toppings.toString() + " - $" + getPrice();
     }
     
 
-    // This method returns the price of the pizza, which is the base price plus the price of all its toppings.
+    // This method returns the price of the pizza, plus all its toppings.
     @Override
     public double getPrice() {
         double price = basePrice;
@@ -31,7 +32,7 @@ public class Pizza extends FoodItem {
         return price;
     }
 
-    // This method returns the type of meal for the pizza, which is determined by the types of meals of all its toppings.
+    // This method returns the type of meal for the pizza.
     @Override
     public MealType getMealType() {
         boolean foundMeat = false;

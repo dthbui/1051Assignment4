@@ -15,7 +15,8 @@ public class Order implements FoodItemInterface {
     private String deliveryAddress;
 
     // Constructor for the Order class.
-    public Order(String customerName, String customerContact, String deliveryAddress) {
+    public Order(String customerName, String customerContact,
+                 String deliveryAddress) {
         this.customerName = customerName;
         this.customerContact = customerContact;
         this.deliveryAddress = deliveryAddress;
@@ -26,7 +27,7 @@ public class Order implements FoodItemInterface {
         foodItems.add(foodItem);
     }
 
-    // This method returns the total price of the order, which is the sum of the prices of all food items in the order.
+    // This method returns the total price of the order.
     public double getPrice() {
         double totalCost = 0.0;
         for (FoodItem item : foodItems) {
@@ -35,7 +36,7 @@ public class Order implements FoodItemInterface {
         return totalCost;
     }
 
-    // This method returns the type of meal for the order, which is determined by the types of meals of all food items in the order.
+    // This method returns the type of meal for the order
     public MealType getMealType() {
         boolean foundMeat = false;
         boolean foundVegetarian = false;
@@ -62,7 +63,8 @@ public class Order implements FoodItemInterface {
         }
     }
 
-    // This method returns a string representation of the order, including the customer's name, contact information, and delivery address, as well as details about the order itself.
+    // This method returns a string representation of the order, customer's name
+    // , contact information, and delivery address, as well as food orders.
     public String toString() {
         return "Customer name: " + customerName + "\n" +
             "Customer contacts: " + customerContact + "\n" +
