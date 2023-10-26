@@ -135,9 +135,19 @@ public class RestaurantDriver
         System.out.print("Enter customer address: ");
         String deliveryAddress = console.nextLine();
 
-        System.out.print("Enter customer contact number: ");
-        String customerContact = console.nextLine();
-
+        String customerContact;
+        while (true) {
+            System.out.println("Please enter your phone number:");
+            customerContact = console.nextLine();
+            
+            // Checking that the string is atleast 10 digits long. 
+            if (customerContact.matches("^(?=.{10,})(\\d)+$")) {
+                break;
+            } else {
+                System.out.println("Phone number is not valid. Must be atleast 10 digits long of only numbers. Please try again.");
+            }
+        }
+        
         // Create a new order
         Order order = new Order(customerName, customerContact, deliveryAddress);
 
